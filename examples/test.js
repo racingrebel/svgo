@@ -22,6 +22,8 @@ var FS = require('fs'),
         },{
           removeUselessDefs: true,
         },{
+          inlineDefs: true,
+        },{
           removeEditorsNSData: true,
         },{
           removeEmptyAttrs: true,
