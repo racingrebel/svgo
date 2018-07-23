@@ -26,11 +26,11 @@ plugins:
   - inlineStyles
   - minifyStyles
   - convertStyleToAttrs
-  - flattenDefs
-  - removeUselessDefs
   - cleanupIDs
   - prefixIds
   - removeRasterImages
+  - flattenDefs
+  - removeUselessDefs
   - cleanupNumericValues
   - cleanupListOfValues
   - convertColors

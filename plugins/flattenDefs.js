@@ -4,17 +4,17 @@ exports.type = 'full';
 
 exports.active = true;
 
-exports.description = 'removes elements in <defs> without id';
+exports.description = 'removes <defs> and pulls them out into the root <svg> with ids removed';
 
 var nonRendering = require('./_collections').elemsGroups.nonRendering;
 
 /**
- * Removes content of defs and properties that aren't rendered directly without ids.
+ * Removes <defs> and pulls them out into the root <svg> with ids removed
  *
  * @param {Object} item current iteration item
  * @return {Boolean} if false, item will be filtered out
  *
- * @author Lev Solntsev
+ * @author Sergei Grishin
  */
 exports.fn = function(item) {
 
@@ -23,6 +23,9 @@ exports.fn = function(item) {
     if (svg.isElem('svg') && !svg.isEmpty()) {
         svg.content.forEach(function(def, i) {
             if (def.isElem('defs') && !def.isEmpty()) {
+                def.content.forEach(function(el, i) {
+                    el.removeAttr('id');
+                })
                 svg.spliceContent(i, 1, def.content);
             }
         });
