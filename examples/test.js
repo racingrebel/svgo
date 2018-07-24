@@ -22,7 +22,7 @@ var FS = require('fs'),
         },{
           removeUselessDefs: true,
         },{
-          inlineDefs: true,
+          flattenDefs: true,
         },{
           removeEditorsNSData: true,
         },{
